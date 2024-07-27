@@ -40,4 +40,9 @@ preprocessData().then(data => {
 
 
     createScene2(data);
+    createScene3(data);
+    createScene4(data);
+    createScene5(data);
+    createScene6(data);
+    
 });
