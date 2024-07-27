@@ -1,44 +1,232 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Full Page Scrolling</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narrative Visualization - Google Books Dataset</title>
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Fullpage template -->
+    <!-- <script src="scripts/fullpage.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="css/fullpage.css"> -->
+    <!-- <script src="scripts/fullpage.js"></script> -->
+
+     <!-- For slider -->
+     <script src="https://unpkg.com/d3-simple-slider"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+
 </head>
+
 <body>
     <div class="fullpage">
-        <section>
-            <h2>Section 1</h2>
-            <p>Content for Section 1</p>
-        </section>
-        <section>
-            <h2>Section 2</h2>
-            <p>Content for Section 2</p>
-        </section>
-        <section>
-            <h2>Section 3</h2>
-            <p>Content for Section 3</p>
-        </section>
-        <section>
-            <h2>Section 4</h2>
-            <p>Content for Section 4</p>
-        </section>
-        <section>
-            <h2>Section 5</h2>
-            <p>Content for Section 5</p>
-        </section>
-        <section>
-            <h2>Section 6</h2>
-            <p>Content for Section 6</p>
-        </section>
-        <section>
-            <h2>Section 7</h2>
-            <p>Content for Section 7</p>
-        </section>
-        <section>
-            <h2>Section 8</h2>
-            <p>Content for Section 8</p>
-        </section>
+        <!-- Introduction Screen -->
+        <div class="section intro clearfix">
+            <div class="intro-content">
+                <!-- <h1>Introduction to Google Books Dataset</h1>
+                <p>Welcome to our interactive visualization of the Google Books dataset. This dashboard provides insights into various aspects of the dataset, including trends over time, genre popularity, and more. Below, you will find different charts showcasing:</p>
+                <p>1. <span class="highlight">Books Published Over Time</span> - Scatterplot illustrating the number of books published over the years, categorized by language.</p>
+                <p>2. <span class="highlight">Genre/Author Popularity</span> - Bar chart showing the popularity of the top genres and authors.</p>
+                <p>3. <span class="highlight">Word Count in Titles</span> - Analysis of the word count in book titles.</p>
+                <p>4. <span class="highlight">Book Popularity Bubble Chart</span> - A bubble chart displaying book popularity based on various metrics.</p>
+                <p>5. <span class="highlight">Zoomable Sunburst Chart</span> - An interactive sunburst chart exploring the hierarchical structure of the dataset.</p>
+                <p>Annotations are included to help you understand the trends and data points in each visualization. Interact with the charts using the provided controls to explore the dataset in detail.</p> -->
+                <h1>Interactive Visualization of the Google Books Dataset</h1>
+                <p>Welcome to our interactive visualization of the Google Books dataset. This dashboard provides
+                    insights into various aspects of the dataset, including trends over time, genre popularity, and
+                    more. Below, you will find different charts showcasing:</p>
+                <p>1. <span class="highlight">Books Published Over Time</span> - Scatterplot illustrating the number of
+                    books published over the years, categorized by language.</p>
+                <p>2. <span class="highlight">Genre/Author Popularity</span> - Bar chart showing the popularity of the
+                    top genres and authors.</p>
+                <p>3. <span class="highlight">Book Popularity Bubble Chart</span> - A bubble chart displaying book
+                    popularity based on various metrics.</p>
+                <p>4. <span class="highlight">Word Count in Titles</span> - Analysis of the word count in book titles.
+                </p>
+                <p>5. <span class="highlight">Zoomable Sunburst Chart</span> - An interactive sunburst chart exploring
+                    the hierarchical structure of the dataset.</p>
+                <p>This visualization is designed to offer an in-depth perspective on the dataset, allowing you to delve
+                    into and grasp different facets of book publishing trends. Each visualization is crafted to be
+                    intuitive and engaging, featuring interactive elements like sliders, tooltips, and annotations to
+                    enrich your exploration of the data.</p>
+                <p>Explore the dataset by navigating through the sections and use the provided controls to delve deeper
+                    into the data. We hope you find these visualizations insightful and engaging.</p>
+
+            </div>
+            <div class="intro-image-wrapper">
+                <img src="images/books_1.png" alt="Book Image" class="intro-image">
+            </div>
+        </div>
+
+        <!-- Scene 2: Books Published Over Time -->
+        <div class="section clearfix">
+            <div class="chart-wrapper" id="chart2"></div>
+
+            <div class="content-wrapper">
+                <!-- <h2>Books Published Over Time</h2>
+                <p>This scatterplot visualizes the number of books published over time, categorized by language. Use the
+                    slider to filter the data by year, and hover over points to see detailed information.</p>
+                <p>Interactions:</p>
+                <p><span class="highlight">Slider</span>: Adjust the slider to filter books by publication year.</p>
+                <p><span class="highlight">Tooltips</span>: Hover over points to view detailed information about each
+                    book.</p>
+                <p><span class="highlight">Annotations</span>: Highlight patterns and trends in the data.</p> -->
+
+                <h2>Books Published Over Time</h2>
+                <p>This scatter plot illustrates the distribution of books published over time, categorized by language.
+                    Each point represents a book, with its position determined by the publication year and page count.
+                    The color of each point corresponds to the book's language, allowing for a visual comparison of
+                    trends across different languages.</p>
+                <p>Interactions:</p>
+                <p><span class="highlight">Tooltips</span>: Hover over points to view detailed information about each
+                    book, including its title, author(s), genre(s), language, publication year, and much more.</p>
+                <p><span class="highlight">Annotations</span>: Annotations highlight significant trends and patterns,
+                    such as peaks in publication over specific years or prominent languages during certain periods.</p>
+                <p><span class="highlight">Year Slider</span>: Use the slider to filter books by their publication year,
+                    enabling you to focus on specific time periods and observe trends over time.</p>
+                <p><span class="highlight">Legends</span>: The color legend helps identify the language categories of
+                    the books, making it easy to analyze language-specific trends and distributions.</p>
+                <p><span class="highlight">Highlighting</span>: Points will change color on hover to distinguish between
+                    different languages, helping you to visually compare data points more easily.</p>
+
+            </div>
+        </div>
+
+        <!-- Scene 3: Genre/Author Popularity -->
+        <div class="section clearfix">
+            <div class="content-wrapper">
+                <h2>Genre/Author Popularity</h2>
+                <!-- <p>This bar chart shows the popularity of the top 10 genres and authors based on the number of books
+                    published. You can sort the chart in ascending or descending order to explore the data more
+                    effectively.</p>
+                <p>Interactions:</p>
+                <p><span class="highlight">Dropdown</span>: Select category from the dropdown to filter the data.</p>
+                <p><span class="highlight">Sort</span>: Use radio buttons to sort the chart in ascending or descending
+                    order.</p>
+                <p><span class="highlight">Tooltips</span>: Hover over bars to see detailed information.</p>
+                <p><span class="highlight">Annotations</span>: Understand the significance of each data point.</p> -->
+
+                <p>This bar chart visualizes the top 10 genres or authors based on the number of books. Each bar
+                    represents a genre or author, and its length corresponds to the number of books in that category.
+                </p>
+                <p>Interactions:</p>
+                <p><span class="highlight">Tooltips</span>: Hover over bars to view detailed information about each
+                    genre or author, including the exact number of books.</p>
+                <p><span class="highlight">Annotations</span>: Annotations highlight significant trends and notable
+                    observations, such as the most popular genre or author.</p>
+                <p><span class="highlight">Dropdown Menu</span>: Select between genres and authors to switch the data
+                    displayed in the chart.</p>
+                <p><span class="highlight">Sorting</span>: Use radio buttons to sort the bars in ascending or descending
+                    order based on the number of books.</p>
+                <p><span class="highlight">Highlighting</span>: Bars will change color on hover to emphasize the
+                    selected genre or author, making it easier to identify and compare them.</p>
+                <input type="radio" name="sort" value="asc" checked> <label>Ascending</label>
+                <input type="radio" name="sort" value="desc"> <label>Descending</label>
+
+            </div>
+            <div class="chart-wrapper" id="chart3"></div>
+        </div>
+
+        <!-- Scene 4: Bubble Chart of Book Popularity -->
+        <div class="section clearfix">
+            <div class="chart-wrapper" id="chart4"></div>
+            <div class="content-wrapper">
+                <!-- <h2>Book Popularity Bubble Chart</h2>
+                <p>This bubble chart displays the popularity of books based on various metrics. Each bubble represents a
+                    book, and its size indicates its popularity.</p>
+                <p>Interactions:</p>
+                <p><span class="highlight">Tooltips</span>: Hover over bubbles to see detailed information about each
+                    book.</p>
+                <p><span class="highlight">Annotations</span>: Identify trends and patterns in the bubble sizes and
+                    positions.</p> -->
+
+                <h2>Book Popularity Bubble Chart</h2>
+                <p>This bubble chart visualizes books based on their average rating and the number of pages. Each bubble
+                    represents a book, with its position determined by the average rating and the number of pages, while
+                    the size of the bubble reflects the book's popularity, measured by the number of voters.</p>
+                <p>Interactions:</p>
+                <p><span class="highlight">Tooltips</span>: Hover over bubbles to see detailed information about each
+                    book, including its title, author(s), maturity rating, average rating, publication year and the
+                    number of pages.</p>
+                <p><span class="highlight">Annotations</span>: Annotations highlight key observations and trends in the
+                    chart, such as clusters of books with similar ratings or page counts, and notable popular books.</p>
+                <!-- <p><span class="highlight">Zoom and Pan</span>: Use zoom and pan features to explore different regions
+                    of the chart and gain a deeper understanding of the data distribution.</p> -->
+                <p><span class="highlight">Legends</span>: Click on color legends to highlight bubbles from specific
+                    rating
+                    ranges or page counts, making it easier to analyze the data.</p>
+                <p><span class="highlight">Highlighting</span>: Bubbles will change to a distinct color on hover,
+                    allowing you to focus on individual books and compare their average ratings, page counts, and
+                    popularity.</p>
+
+
+            </div>
+        </div>
+
+        <!-- Scene 5: Word Count in Titles -->
+        <div class="section clearfix">
+            <div class="chart-wrapper" id="chart5"></div>
+            <div class="content-wrapper">
+                <!-- <h2>Word Count in Titles</h2>
+                <p>This chart analyzes the word count in book titles. The visualization helps to identify patterns and
+                    trends in title lengths.</p>
+                <p>Interactions:</p>
+                <p><span class="highlight">Tooltips</span>: Hover over bars to view detailed information about title
+                    lengths.</p>
+                <p><span class="highlight">Annotations</span>: Explore patterns in the distribution of word counts.</p> -->
+                <h2>Word Count in Titles</h2>
+                <p>This chart analyzes the frequency of word counts in book titles. Each block in the tree map
+                    represents a unique word count, with its size indicating how common that word count is across the
+                    dataset. Discover how often different word counts appear and identify trends in title lengths.</p>
+                <p>Interactions:</p>
+                <p><span class="highlight">Tooltips</span>: Hover over blocks to view detailed information about the
+                    word counts and their frequencies.</p>
+                <p><span class="highlight">Annotations</span>: Explore the visualization to uncover patterns and trends
+                    in word counts and understand which title lengths are most prevalent.</p>
+            </div>
+        </div>
+
+        <!-- Scene 6: Zoomable Sunburst Chart -->
+        <div class="section clearfix">
+            <div class="chart-wrapper" id="chart6"></div>
+            <div class="content-wrapper">
+                <!-- <h2>Zoomable Sunburst Chart</h2>
+                <p>Explore the hierarchical structure of the dataset with this interactive sunburst chart. The chart
+                    shows relationships between language, genre, author, publisher, and average rating.</p>
+                <p>Interactions:</p>
+                <p><span class="highlight">Zoom</span>: Click on segments to zoom into different levels of the
+                    hierarchy.</p>
+                <p><span class="highlight">Tooltips</span>: Hover over segments to view detailed information.</p>
+                <p><span class="highlight">Annotations</span>: Understand the relationships within the hierarchical
+                    structure.</p> -->
+
+                <h2>Zoomable Sunburst Chart</h2>
+                <p>This interactive sunburst chart provides a hierarchical view of the book data, organized by language,
+                    category, author, publisher, and publication year. Each segment represents a part of the hierarchy,
+                    with its size indicating the number of books associated with that segment. Dive into different
+                    levels to explore detailed relationships and understand how various attributes contribute to the
+                    overall dataset.</p>
+                <p>Interactions:</p>
+                <p><span class="highlight">Tooltips</span>: Hover over segments to see detailed information about the
+                    books in that segment, including their names and values.</p>
+                <p><span class="highlight">Zoom</span>: Click on segments to zoom into specific parts of the hierarchy
+                    and explore different levels in more detail, and click in the center of the circle to zoom out and
+                    return to previous levels. Use zoom to get a closer look at the data.</p>
+                <p><span class="highlight">Annotations</span>: Explore the visualization to uncover key insights and
+                    patterns in book data across different categories, languages, and authors.</p>
+
+            </div>
+        </div>
     </div>
+
     <div class="nav">
         <div class="dot" data-index="0"></div>
         <div class="dot" data-index="1"></div>
@@ -46,9 +234,16 @@
         <div class="dot" data-index="3"></div>
         <div class="dot" data-index="4"></div>
         <div class="dot" data-index="5"></div>
-        <div class="dot" data-index="6"></div>
-        <div class="dot" data-index="7"></div>
-        </div>
-    <script src="script.js"></script>
+    </div>
+
+    <script src="scripts/data-preprocess.js"></script>
+    <script src="scripts/template.js"></script>
+    <script src="scripts/scatter-plot.js"></script>
+    <script src="scripts/bar-chart.js"></script>
+    <script src="scripts/bubble-chart.js"></script>
+    <script src="scripts/word-count.js"></script>
+    <script src="scripts/zoomable-sunburst.js"></script>
+
 </body>
+
 </html>
