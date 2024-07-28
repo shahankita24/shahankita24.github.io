@@ -282,15 +282,3 @@ h2 {
     color: #1e90ff;
     /* Blue text */
 }
-
-.section-0,
-.section-1,
-.section-3,
-.section-4,
-.section-5 .svg-dropdown {
-    display: none;
-}
-
-.section-2 .svg-dropdown {
-    display: block;
-}
