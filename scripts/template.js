@@ -2,7 +2,18 @@ const sections = document.querySelectorAll('.section');
 const dots = document.querySelectorAll('.dot');
 const fullpage = document.querySelector('.fullpage');
 
-const dropdown = document.querySelector('.svg-dropdown');
+// const dropdown = document.querySelector('.svg-dropdown');
+const dropdowns = document.querySelectorAll('.svg-dropdown');
+
+//   dropdowns.forEach(dropdown => {
+//     dropdown.style.display = 'none';
+//   });
+
+//   if (index === 1) {
+//     dropdowns[0].style.display = 'block';
+//   } else if (index === 2) {
+//     dropdowns[1].style.display = 'block';
+//   }
 
 
 let currentSectionIndex = 0;
@@ -20,10 +31,10 @@ function scrollToSection(index) {
 }
 
 function hideShowDropDown() {
-    if (index === 2) {
-        dropdown.style.display = 'block';
+    if (currentSectionIndex === 2) {
+        dropdowns[0].style.display = 'block';
       } else {
-        dropdown.style.display = 'none';
+        dropdowns[0].style.display = 'none';
       }
 }
 
