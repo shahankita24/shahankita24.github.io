@@ -2,6 +2,8 @@ const sections = document.querySelectorAll('.section');
 const dots = document.querySelectorAll('.dot');
 const fullpage = document.querySelector('.fullpage');
 
+const dropDown = document.querySelectorAll('.svg-dropdown')
+
 let currentSectionIndex = 0;
 let scrollThreshold = 5; // Adjust this threshold as needed
 
@@ -13,6 +15,16 @@ function scrollToSection(index) {
     });
     currentSectionIndex = index;
     updateDotColors();
+    hideShowDropDown();
+}
+
+function hideShowDropDown() {
+    dropDown.forEach(val => {
+        val.classList.add('hidden');
+    });
+    if (currentSectionIndex == 2){
+        val.classList.remove('hidden');
+    }
 }
 
 function updateDotColors() {
