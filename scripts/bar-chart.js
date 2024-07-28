@@ -56,7 +56,7 @@ function createScene3(data) {
         .style("opacity", 0);
 
     // Append dropdown directly into SVG
-    const dropdown = d3.select("#chart3").append("svg")
+    const dropdown = d3.select("#chart3")
         .append("select")
         .attr("class", "svg-dropdown")
         .style("position", "absolute")
