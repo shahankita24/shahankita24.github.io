@@ -32,20 +32,20 @@ dots.forEach((dot, index) => {
     });
 });
 
-fullpage.addEventListener('scroll', () => {
-    const currentScroll = fullpage.scrollTop;
-    const sectionHeight = sections[0].clientHeight;
-    const scrollDelta = Math.abs(currentScroll - fullpage.scrollTop);
+// fullpage.addEventListener('scroll', () => {
+//     const currentScroll = fullpage.scrollTop;
+//     const sectionHeight = sections[0].clientHeight;
+//     const scrollDelta = Math.abs(currentScroll - fullpage.scrollTop);
 
-    // console.log("In scripts.js", "curScroll: " + currentScroll + ", " + "secHeight: " + sectionHeight);
-    // console.log("scollData", "scrollDalta: " + scrollDelta + ", " + "scrollThreshold: " + scrollThreshold);
-    var newIndex = Math.floor(currentScroll / sectionHeight);
-    if (newIndex !== currentSectionIndex && scrollDelta == 0) {
-        newIndex = currentSectionIndex + 1;
-        scrollToSection(newIndex);
-    } else {
-        currentSectionIndex = newIndex;
-        updateDotColors();
-    }
+//     // console.log("In scripts.js", "curScroll: " + currentScroll + ", " + "secHeight: " + sectionHeight);
+//     // console.log("scollData", "scrollDalta: " + scrollDelta + ", " + "scrollThreshold: " + scrollThreshold);
+//     var newIndex = Math.floor(currentScroll / sectionHeight);
+//     if (newIndex !== currentSectionIndex && scrollDelta == 0) {
+//         newIndex = currentSectionIndex + 1;
+//         scrollToSection(newIndex);
+//     } else {
+//         currentSectionIndex = newIndex;
+//         updateDotColors();
+//     }
 
-});
+// });
