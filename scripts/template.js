@@ -2,24 +2,13 @@ const sections = document.querySelectorAll('.section');
 const dots = document.querySelectorAll('.dot');
 const fullpage = document.querySelector('.fullpage');
 
-// const dropdown = document.querySelector('.svg-dropdown');
-const dropdowns = document.querySelectorAll('.svg-dropdown');
-
-//   dropdowns.forEach(dropdown => {
-//     dropdown.style.display = 'none';
-//   });
-
-//   if (index === 1) {
-//     dropdowns[0].style.display = 'block';
-//   } else if (index === 2) {
-//     dropdowns[1].style.display = 'block';
-//   }
-
-
 let currentSectionIndex = 0;
 let scrollThreshold = 5; // Adjust this threshold as needed
 
 function scrollToSection(index) {
+    const dropdown = document.querySelector('select');
+    console.log("In func->Select dropdown", dropdown);
+
     const sectionHeight = sections[0].clientHeight;
     fullpage.scrollTo({
         top: index * sectionHeight,
@@ -27,15 +16,12 @@ function scrollToSection(index) {
     });
     currentSectionIndex = index;
     updateDotColors();
-    hideShowDropDown();
-}
 
-function hideShowDropDown() {
     if (currentSectionIndex === 2) {
-        dropdowns[0].style.display = 'block';
-      } else {
-        dropdowns[0].style.display = 'none';
-      }
+        dropdown.style.display = 'block';
+    } else {
+        dropdown.style.display = 'none';
+    }
 }
 
 function updateDotColors() {

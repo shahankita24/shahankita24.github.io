@@ -274,6 +274,7 @@ h2 {
     /* Centered horizontally */
     z-index: 10;
     /* Ensure it appears above other elements */
+    display: none;
 }
 
 .svg-dropdown option {
