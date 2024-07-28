@@ -80,7 +80,7 @@ h2 {
     box-sizing: border-box;
 } */
 
- 
+
 
 .intro-content {
     width: 70%;
@@ -281,4 +281,16 @@ h2 {
     /* Dark background for options */
     color: #1e90ff;
     /* Blue text */
+}
+
+.section-0,
+.section-1,
+.section-3,
+.section-4,
+.section-5 .svg-dropdown {
+    display: none;
+}
+
+.section-2 .svg-dropdown {
+    display: block;
 }
