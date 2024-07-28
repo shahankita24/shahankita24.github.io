@@ -5,25 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Narrative Visualization - Google Books Dataset</title>
-
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
-
-    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- Fullpage template -->
-    <!-- <script src="scripts/fullpage.min.js"></script> -->
-    <!-- <link rel="stylesheet" href="css/fullpage.css"> -->
-    <!-- <script src="scripts/fullpage.js"></script> -->
-
-    <!-- For slider -->
     <script src="https://unpkg.com/d3-simple-slider"></script>
-
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-
 </head>
 
 <body>
@@ -58,9 +45,8 @@
                     intuitive and engaging, featuring interactive elements like sliders, tooltips, and annotations to
                     enrich your exploration of the data.</p>
                 <p>Explore the dataset by clicking on the navigation dots present on the right side of the screen for
-                    navigating through the sections and use the provided controls to delve deeper into the data. We hope
-                    you find these visualizations insightful and engaging.</p>
-
+                    navigating through the sections and use the provided controls to delve deeper into the data. Hope
+                    you find these visualizations insightful and engaging till the end!</p>
             </div>
             <div class="intro-image-wrapper">
                 <img src="images/books_1.png" alt="Book Image" class="intro-image">
@@ -150,8 +136,9 @@
                     positions.</p> -->
 
                 <h2>Book Popularity Bubble Chart</h2>
-                <p>This bubble chart visualizes books based on their average rating and the number of pages. Each bubble
-                    represents a book, with its position determined by the average rating and the number of pages, while
+                <p>This bubble chart visualizes books based on their average rating and the number of pages, categorized
+                    by maturity rating. Each bubble represents a book, with its position determined by the average
+                    rating and the number of pages, while
                     the size of the bubble reflects the book's popularity, measured by the number of voters.</p>
                 <p>Interactions:</p>
                 <p><span class="highlight">Tooltips</span>: Hover over bubbles to see detailed information about each
@@ -161,9 +148,8 @@
                     chart, such as clusters of books with similar ratings or page counts, and notable popular books.</p>
                 <!-- <p><span class="highlight">Zoom and Pan</span>: Use zoom and pan features to explore different regions
                     of the chart and gain a deeper understanding of the data distribution.</p> -->
-                <p><span class="highlight">Legends</span>: Click on color legends to highlight bubbles from specific
-                    rating
-                    ranges or page counts, making it easier to analyze the data.</p>
+                <p><span class="highlight">Legends</span>: Click on color legends to highlight bubbles of specific
+                    maturity rating, making it easier to analyze the data.</p>
                 <p><span class="highlight">Highlighting</span>: Bubbles will change to a distinct color on hover,
                     allowing you to focus on individual books and compare their average ratings, page counts, and
                     popularity.</p>
@@ -180,6 +166,7 @@
                 <p><span class="highlight">Tooltips</span>: Hover over bars to view detailed information about title
                     lengths.</p>
                 <p><span class="highlight">Annotations</span>: Explore patterns in the distribution of word counts.</p> -->
+
                 <h2>Word Count in Titles</h2>
                 <p>This chart analyzes the frequency of word counts in book titles. Each block in the tree map
                     represents a unique word count, with its size indicating how common that word count is across the
